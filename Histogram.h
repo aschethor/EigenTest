@@ -8,13 +8,13 @@
 
 class Histogram {
 private:
-    int nBins;
-    double binSize;
-    double binStart;
-    int nSamples = 0;
-    int toLowSamples = 0;
-    int toHighSamples = 0;
-    std::vector<int> bins;
+    int nBins;                  ///< number of Bins
+    double binSize;             ///< size of Bins
+    double binStart;            ///< position of first bin
+    int nSamples = 0;           ///< number of registered samples
+    int toLowSamples = 0;       ///< number of registered samples that were to low for the histogram
+    int toHighSamples = 0;      ///< number of registered samples that were to high for the histogram
+    std::vector<int> bins;      ///< bins (vector size: nBins)
 
 public:
     Histogram(int n,double binSize,double binStart=0);
@@ -30,6 +30,5 @@ public:
     std::vector<double> getNormalizedBins();
     Histogram& operator+=(Histogram& h);
 };
-
 
 #endif //EIGENTEST_HISTOGRAM_H

@@ -8,14 +8,14 @@
 #include "MDsystem.h"
 
 class Argon : public MDsystem{
-    const double sigma = 1;
-    const double mass = 1;
-    double Rcutoff;
-    double Ecutoff;
-    double Energy_pot;              //potential energy
-    double Energy_kin;              //kinetic energy
-    Eigen::MatrixXd Force;          //forces on particles
-    double Pressure;                //pressure
+    const double sigma = 1;         ///< sigma in LJ-units
+    const double mass = 1;          ///< mass in LJ-units
+    double Rcutoff;                 ///< cutoff radius
+    double Ecutoff;                 ///< Energy of LJ-Potential at cutoff radius
+    double Energy_pot;              ///< potential energy
+    double Energy_kin;              ///< kinetic energy
+    Eigen::MatrixXd Force;          ///< forces on particles
+    double Pressure;                ///< pressure
 
 public:
     Argon(int n,Eigen::Vector3d Box,double Rcutoff=3,BoundaryCondition bc=periodic);

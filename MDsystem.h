@@ -17,20 +17,23 @@ public:
         //, mirror          //evtl. later...
     };
 public:
-    int n;                              //number of particles
-    Eigen::VectorXd m;                  //masses of particles       (size: n)
-    Eigen::MatrixXd x;                  //positions of particles    (size: 3 x n)
-    Eigen::MatrixXd v;                  //velocities of particles   (size: 3 x n)
-    Eigen::Vector3d Box;                //size of Box in x/y/z direction
-    BoundaryCondition bc;               //boundary condition
-    virtual void evaluate() = 0;        //evaluate E / F / P
-    virtual double Epot() = 0;          //potential energy
-    virtual double Ekin() = 0;          //kinetic energy
-    virtual Eigen::MatrixXd F() = 0;    //forces
-    virtual double P() = 0;             //pressure
-    virtual double T() = 0;             //temperature
-    virtual std::string toPDB() = 0;    //PDB-representation of the system
+    int n;                              ///< number of particles
+    Eigen::VectorXd m;                  ///< masses of particles       (size: n)
+    Eigen::MatrixXd x;                  ///< positions of particles    (size: 3 x n)
+    Eigen::MatrixXd v;                  ///< velocities of particles   (size: 3 x n)
+    Eigen::Vector3d Box;                ///< size of Box in x/y/z direction
+    BoundaryCondition bc;               ///< boundary condition
+    virtual void evaluate() = 0;        ///< evaluate E / F / P
+    virtual double Epot() = 0;          ///< potential energy
+    virtual double Ekin() = 0;          ///< kinetic energy
+    virtual Eigen::MatrixXd F() = 0;    ///< forces
+    virtual double P() = 0;             ///< pressure
+    virtual double T() = 0;             ///< temperature
+    virtual std::string toPDB() = 0;    ///< PDB-representation of the system
 
+    /**
+     * put particles back into box
+     */
     void backToBox(){
         if(bc==periodic) {
             double BoxX = Box(0), BoxY = Box(1), BoxZ = Box(2);

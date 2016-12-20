@@ -11,11 +11,16 @@
 
 class MDintegrator {
 public:
-    MDsystem* MD;
-    double deltaT;
+    MDsystem* MD;   ///< Molecular dynamic system that shall be integrated
+    double deltaT;  ///< timestep for integration
 
     virtual void integrate() = 0;
 
+    /**
+     * equilibrate system
+     * @param nSteps number of equilibration steps
+     * @param T target temperature of system
+     */
     void equilibrate(int nSteps,double T){
         std::cout<<"equilibrating...\n";
         for(int i=0;i<nSteps;i++){

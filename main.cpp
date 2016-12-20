@@ -55,10 +55,15 @@ void diffBoxSize(){
 }
 
 int main() {
-    //original();
-    //diffTemp();
+    // calculate "original" problem: T=0.7867; a=1.7048; N=864 Atoms
+    original();
+    // vary temperature of original problem
+    diffTemp();
+    // vary density of original problem
     diffDens();
+    // vary box size
     diffBoxSize();
+
     getch();
     return 0;
 }

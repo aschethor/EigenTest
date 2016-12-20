@@ -83,7 +83,7 @@ void MDtracker::calculateGofr() {
 
 void MDtracker::calculateSofk(){
     double rho0 = (MD->MD->n-1.0)/(MD->MD->Box(0)*MD->MD->Box(1)*MD->MD->Box(2));
-    double dk = maxS/sofkSize;
+    double dk = maxK/sofkSize;
     double dr = min(MD->MD->Box(0),min(MD->MD->Box(1),MD->MD->Box(2)))/2/gofrSize;
     std::vector<double> fofr;
     fofr.resize(gofrSize);
@@ -139,7 +139,7 @@ void MDtracker::calculateVvAuto() {
                 }
             }
         }
-        vvAuto[i]=vvAutoSum/MD->MD->n/(nSamples-i);
+        vvAuto[i]=vvAutoSum/MD->MD->n/(nSamples-i)/3.0;
     }
 
     double dt = MD->deltaT*SampleRate;
